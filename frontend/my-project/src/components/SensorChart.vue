@@ -69,7 +69,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "vue-chartjs";
-import * as chartConfig from "./chartConfig.js";
+import * as chartConfig from "./chartConfig";
 import axios from "axios";
 const apiUrl = "http://127.0.0.1:8000";
 ChartJS.register(
