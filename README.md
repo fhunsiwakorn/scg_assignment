@@ -9,25 +9,21 @@
 - **Frontend**: Vue.js
 - **Database**: MySQL
 - **Containerization**: Docker & Docker Compose
+## เข้าถึงแอปพลิเคชัน
+- **Backend: http://localhost:8000
+- **Frontend: http://localhost
 
-## โครงสร้างโปรเจกต์
-/assignment
-├── backend
-│   ├── main.py
-│   ├── models.py
-│   ├── database.py
-│   ├── services.py
-│   ├── routers
-│   │   └── sensor.py
-│   ├── requirements.txt
-│   └── Dockerfile
-├── frontend
-│   ├── src
-│   │   ├── App.vue
-│   │   ├── components
-│   │   │   └── SensorChart.vue
-│   │   └── main.ts
-│   ├── package.json
-│   └── vite.config.ts
-├── docker-compose.yml
-└── sensor_data.csv
+## API Endpoints
+- **POST /sensor/data: รับข้อมูลเซนเซอร์ (อุณหภูมิ, ความชื้น, คุณภาพอากาศ)
+- **GET /sensor/processed: ดึงข้อมูลที่ทำความสะอาดและตรวจจับค่าผิดปกติ
+- **GET /sensor/aggregated: ดึงสถิติที่สรุปไว้ (ค่าเฉลี่ย, ค่ามัธยฐาน, ค่าสูงสุด/ต่ำสุด)
+
+## การทำความสะอาดข้อมูลและการตรวจจับค่าผิดปกติ
+ในขั้นตอนการประมวลผลข้อมูล เราได้ทำการ:
+- **ลบค่าซ้ำ
+- **จัดการข้อมูลที่หายไป
+- **ตรวจจับค่าผิดปกติโดยใช้ Z-score หรือ IQR เพื่อทำการติดธงค่าที่ผิดปกติ
+
+## การติดตั้ง Dependencies
+สำหรับการติดตั้ง dependencies ของ backend ให้รันคำสั่ง:
+- **pip install -r backend/requirements.txt
