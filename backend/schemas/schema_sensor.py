@@ -31,3 +31,18 @@ class SchemaSensorOut2(BaseModel):
     timestamp: Optional[datetime] = None
     class Config:
         from_attributes  = True
+        
+
+class AggregatedInsights(BaseModel):
+    mean_temperature: float
+    median_temperature: float
+    min_temperature: float
+    max_temperature: float
+    mean_humidity: float
+    median_humidity: float
+    min_humidity: float
+    max_humidity: float
+    mean_air_quality: float
+    median_air_quality: float
+    min_air_quality: float
+    max_air_quality: float

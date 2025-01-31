@@ -1,9 +1,8 @@
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy.sql.expression import func
-from pydantic import BaseModel
 from models import SensorData
-from schemas.schema_sensor import SchemaSensorIn
+from schemas.schema_sensor import SchemaSensorIn,AggregatedInsights
 from datetime import datetime, timedelta, timezone
 from typing import List
 import numpy as np
@@ -16,19 +15,6 @@ bangkok_offset = timedelta(hours=7)
 now_bangkok = now_utc.astimezone(timezone(bangkok_offset))
 
 
-class AggregatedInsights(BaseModel):
-    mean_temperature: float
-    median_temperature: float
-    min_temperature: float
-    max_temperature: float
-    mean_humidity: float
-    median_humidity: float
-    min_humidity: float
-    max_humidity: float
-    mean_air_quality: float
-    median_air_quality: float
-    min_air_quality: float
-    max_air_quality: float
 
 
 async def add_sensor_data(data: SchemaSensorIn, db: Session):
